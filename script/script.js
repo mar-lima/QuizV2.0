@@ -51,7 +51,7 @@ function init() {
     }
 
     document.getElementById("time-ss").innerHTML = `${time}`;
-  }, 1000);
+  }, 100);
 }
 
 let reset = (t) => {
@@ -59,7 +59,9 @@ let reset = (t) => {
     time = 5;
     currentquestion = quiz.length;
     console.log("nesse reset");
+    finish()
     clearInterval(t);
+    
   }
 };
 
@@ -87,6 +89,8 @@ function showQuestion() {
   document.querySelectorAll(".options .option").forEach((item) => {
     item.addEventListener("click", optionClickEvent);
   });
+  
+
 }
 //escolher opçao de resposta
 function optionClickEvent(e) {
@@ -101,22 +105,19 @@ function optionClickEvent(e) {
     option.style.background = "#d62c5a";
   }
   if (time == 0) {
-    // init()
   }
+
 }
 
 showQuestion();
 
-//button next questions
+// winnn
 
-// next.addEventListener("click", () => {
-//   currentquestion++;
+const finish = ()=> {
+  let container = document.querySelector('.container').style.display ='none';
 
-//   if (currentquestion >= quiz.length) {
-//     currentquestion = 0;
-//   }
-//   showQuestion();
-//   console.log('certo')
-// });
-
+  // if(currentquestion == quiz.length){
+  //   container.style.display ='none';
+  // }
+}
 init();
